@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check file exists
-        run: test -f exam.html
+        run: test -f "Maths Exam 1.html"
 
       - name: Check file not empty
         run: test -s exam.html

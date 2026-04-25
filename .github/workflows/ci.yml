@@ -16,9 +16,10 @@ jobs:
         run: test -f "Maths Exam 1.html"
 
       - name: Check file not empty
-        run: test -s exam.html
+        run: test -s "Maths Exam 1.html"
 
       - name: Check content
         run: |
-          grep -q "Submit Answer" exam.html || exit 1
-          grep -q "questions" exam.html || exit 1
+          grep -q "Submit Answer" "Maths Exam 1.html" || exit 1
+          grep -q "questions" "Maths Exam 1.html" || exit 1
+          

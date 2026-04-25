@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ Mobile responsiveness fix -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>11+ Maths Exam Paper 1 - Interactive</title>
+
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -11,14 +16,19 @@ body {
     justify-content: center;
     padding: 20px;
 }
+
+/* ✅ MOBILE FRIENDLY CONTAINER */
 .container {
     background: white;
     padding: 25px;
     border-radius: 15px;
-    width: 500px;
+    width: 90%;
+    max-width: 500px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
+
 h2 { text-align: center; }
+
 .progress {
     height: 10px;
     background: #ddd;
@@ -26,35 +36,44 @@ h2 { text-align: center; }
     margin-bottom: 20px;
     overflow: hidden;
 }
+
 .progress-bar {
     height: 10px;
     width: 0%;
     background: #4caf50;
 }
+
 .question {
     font-size: 20px;
     margin: 20px 0;
     text-align: center;
 }
+
+/* ✅ better mobile input */
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     font-size: 18px;
     text-align: center;
     border-radius: 10px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
 }
+
+/* ✅ better touch buttons */
 button {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     margin-top: 15px;
-    font-size: 16px;
+    font-size: 18px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
 }
+
 #submitBtn { background: #4caf50; color: white; }
 #nextBtn { background: #2196f3; color: white; display: none; }
+
 .result {
     text-align: center;
     font-size: 18px;
@@ -63,13 +82,18 @@ button {
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
 <h2>11+ Maths Exam (Top Tier)</h2>
-<div class="progress"><div class="progress-bar" id="bar"></div></div>
+
+<div class="progress">
+    <div class="progress-bar" id="bar"></div>
+</div>
 
 <div class="question" id="question"></div>
+
 <input type="number" id="answer" placeholder="Type your answer" autocomplete="off">
 
 <button id="submitBtn" onclick="submitAnswer()">Submit Answer</button>

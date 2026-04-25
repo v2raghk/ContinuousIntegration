@@ -1,2 +1,2 @@
-console.log("CI practice run 1");
+console.log("CI practice run 2");
 // updated comment: testing CI trigger

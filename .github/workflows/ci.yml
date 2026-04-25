@@ -13,13 +13,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Check file exists
-        run: test -f "Maths Exam 1.html"
+        run: test -f index.html
 
       - name: Check file not empty
-        run: test -s "Maths Exam 1.html"
+        run: test -s index.html
 
       - name: Check content
         run: |
-          grep -q "Submit Answer" "Maths Exam 1.html" || exit 1
-          grep -q "questions" "Maths Exam 1.html" || exit 1
-          
+          grep -q "Submit Answer" index.html || exit 1
+          grep -q "questions" index.html || exit 1

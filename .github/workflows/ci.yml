@@ -1,17 +1,24 @@
-name: First CI Pipeline
+name: CICD Pipeline
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run script
+      - name: Run CI check
         run: node index.js
+
+      - name: Deploy
+        run: |
+          mkdir deploy
+          cp index.js deploy/
+          echo "Deployed successfully"
+
     

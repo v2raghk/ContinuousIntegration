@@ -1,25 +1,24 @@
-name: CICD Pipeline
+name: Exam CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
-  build-and-deploy:
+  check-exam:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run CI check
-        run: node index.js
+      - name: Check file exists
+        run: test -f exam.html
 
-      - name: Create output folder and file
+      - name: Check file not empty
+        run: test -s exam.html
+
+      - name: Check content
         run: |
-          mkdir -p deploy
-          echo "CI/CD run successful " > deploy/result.txt
-          cat deploy/result.txt
-
-
-    
+          grep -q "Question" exam.html || exit 1
+          grep -q "Submit Answer" exam.html || exit 1

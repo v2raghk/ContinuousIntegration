@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>11+ Maths Exam Paper 1 - Interactive</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f8ff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+h2 { text-align: center; }
+.progress {
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.progress-bar {
+    height: 10px;
+    width: 0%;
+    background: #4caf50;
+}
+.question {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#submitBtn { background: #4caf50; color: white; }
+#nextBtn { background: #2196f3; color: white; display: none; }
+.result {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>11+ Maths Exam (Top Tier)</h2>
+<div class="progress"><div class="progress-bar" id="bar"></div></div>
+
+<div class="question" id="question"></div>
+<input type="number" id="answer" placeholder="Type your answer" autocomplete="off">
+
+<button id="submitBtn" onclick="submitAnswer()">Submit Answer</button>
+<button id="nextBtn" onclick="nextQuestion()">Next Question</button>
+
+<div class="result" id="result"></div>
+</div>
+
+<script>
+const questions = [
+{q:"345 + 278", a:623},
+{q:"600 ÷ 12", a:50},
+{q:"15 × 14", a:210},
+{q:"1/2 of 84", a:42},
+{q:"25% of 200", a:50},
+{q:"7 × 8 - 12", a:44},
+{q:"144 ÷ 12", a:12},
+{q:"3/4 of 64", a:48},
+{q:"18 + 27 + 35", a:80},
+{q:"9 × 9 - 15", a:66}
+];
+
+let current = 0;
+let score = 0;
+let locked = false;
+
+function loadQ() {
+    document.getElementById("question").innerText = "Q" + (current+1) + ": " + questions[current].q;
+    document.getElementById("answer").value = "";
+    document.getElementById("answer").disabled = false;
+    document.getElementById("submitBtn").style.display = "block";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("result").innerText = "";
+    document.getElementById("bar").style.width = (current/questions.length)*100 + "%";
+    locked = false;
+}
+
+function submitAnswer() {
+    if (locked) return;
+    let ans = Number(document.getElementById("answer").value);
+    let correct = questions[current].a;
+
+    if (ans === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Correct!";
+    } else {
+        document.getElementById("result").innerText = "❌ Wrong! Answer: " + correct;
+    }
+
+    document.getElementById("answer").disabled = true;
+    document.getElementById("submitBtn").style.display = "none";
+    document.getElementById("nextBtn").style.display = "block";
+    locked = true;
+}
+
+function nextQuestion() {
+    current++;
+    if (current >= questions.length) {
+        document.querySelector(".container").innerHTML =
+        "<h2>Test Finished 🎯</h2><p>Your Score: " + score + "/" + questions.length + "</p>";
+        return;
+    }
+    loadQ();
+}
+
+loadQ();
+</script>
+
+</body>
+</html>

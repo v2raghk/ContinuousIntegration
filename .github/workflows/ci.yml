@@ -15,10 +15,11 @@ jobs:
       - name: Run CI check
         run: node index.js
 
-      - name: Deploy
+      - name: Create output folder and file
         run: |
-          mkdir deploy
-          cp index.js deploy/
-          echo "Deployed successfully"
+          mkdir -p deploy
+          echo "CI/CD run successful " > deploy/result.txt
+          cat deploy/result.txt
+
 
     

@@ -4,9 +4,6 @@ on:
   push:
     branches: [ "main" ]
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   check-exam:
     runs-on: ubuntu-latest
@@ -23,5 +20,5 @@ jobs:
 
       - name: Check content
         run: |
-          grep -q "Question" exam.html || exit 1
           grep -q "Submit Answer" exam.html || exit 1
+          grep -q "questions" exam.html || exit 1

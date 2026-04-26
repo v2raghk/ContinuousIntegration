@@ -3,35 +3,43 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- ✅ Mobile responsiveness fix -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>11+ Maths Exam Paper 1 - Interactive</title>
 
+<!-- ✅ Better modern font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f8ff;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 15px;
+    margin: 0;
 }
 
-/* ✅ MOBILE FRIENDLY CONTAINER */
+/* ✅ Responsive container */
 .container {
     background: white;
-    padding: 25px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-h2 { text-align: center; }
+h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
 
+/* ✅ Progress bar */
 .progress {
     height: 10px;
-    background: #ddd;
+    background: #e5e7eb;
     border-radius: 5px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -40,45 +48,69 @@ h2 { text-align: center; }
 .progress-bar {
     height: 10px;
     width: 0%;
-    background: #4caf50;
+    background: #2563eb; /* 🔵 new modern blue */
 }
 
+/* ✅ Question styling */
 .question {
     font-size: 20px;
     margin: 20px 0;
     text-align: center;
 }
 
-/* ✅ better mobile input */
+/* ✅ Input (mobile optimized) */
 input {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
     font-size: 18px;
     text-align: center;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
     box-sizing: border-box;
 }
 
-/* ✅ better touch buttons */
+/* ✅ Buttons (touch friendly) */
 button {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
     margin-top: 15px;
     font-size: 18px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: 600;
 }
 
-#submitBtn { background: #4caf50; color: white; }
-#nextBtn { background: #2196f3; color: white; display: none; }
+/* 🔵 Primary button */
+#submitBtn {
+    background: #2563eb;
+    color: white;
+}
+
+/* 🔷 Secondary button */
+#nextBtn {
+    background: #0ea5e9;
+    color: white;
+    display: none;
+}
 
 .result {
     text-align: center;
     font-size: 18px;
     margin-top: 20px;
-    font-weight: bold;
+    font-weight: 600;
+}
+
+/* ✅ Extra mobile polish */
+@media (max-width: 400px) {
+    .question {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 14px;
+    }
 }
 </style>
 </head>
